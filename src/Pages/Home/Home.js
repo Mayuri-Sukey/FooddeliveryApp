@@ -17,6 +17,8 @@ const Home = () => {
            {/* hero secttion1 banner */}
            <Section1 />
 
+           {/* chetan mundle */}
+
              {/*home section about*/}
            <Section2 />
 
