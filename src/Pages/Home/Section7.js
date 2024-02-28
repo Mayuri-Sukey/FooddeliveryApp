@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 const Section7 = () => {
   return (
-    <footer>
-        <Container className='contact_section'>
+    <section className='contact_section'>
+        <Container >
             <Row className='justify-content-center'>
                  <Col sm={8} className="text-center">
                     <h4>We Guarantee</h4>
@@ -21,7 +21,7 @@ const Section7 = () => {
             </Row>
         </Container>
       
-    </footer>
+    </section>
   )
 }
 

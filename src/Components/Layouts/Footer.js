@@ -1,10 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Col, Container, Row,  } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  //scroll state
+  const[isVisible,setIsVisible ] = useState(false);
+  const scrollTop = () =>{
+    window.scrollTo({
+      top:0,
+      behavior:"smooth",
+    });
+  };
+
+  const listenToScroll = () =>{
+    let heightToHidden = 250;
+    const windowScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    windowScroll > heightToHidden ? setIsVisible(true) : setIsVisible(false);
+  }
+
+  useEffect(()=>{
+    window.addEventListener("scroll", listenToScroll);
+  })
   return (
-    <section>
+    <>
+    <footer>
       <Container>
         <Row>
           <Col sm={6} lg={3} className="mb-4 mb-lg-0">
@@ -24,34 +43,42 @@ const Footer = () => {
                  <p>Sunday: 12:00PM - 5:00PM</p>
             </div>
           </Col>
+          <Col sm={6} lg={3} className="mb-4 mb-lg-0">
+            <div className='text-center'>
+              <h5>Order Now</h5>
+                 <p>Quaerat neque purus ipsum</p>
+                 <p><Link to ="tel:999888777" className='calling'>999-888-777</Link></p>
+
+            </div>
+          </Col >
            
           <Col sm={6} lg={3} className="mb-4 mb-lg-0">
             <div className='text-center'>
-                 <h5>Order Now</h5>
+                 <h5>Follow Us</h5>
                  <p>Quaerat neque purus ipsum</p>
                 <ul className='list-unstyled text-center mt-2'>
                   <li>
                     <Link to="/">
-                      <i className='bi-bi-facebook'></i>
+                      <i class='bi bi-facebook'></i>
                     </Link>
                   </li>
 
                   <li>
                     <Link to="/">
-                      <i className='bi-bi-instagram'></i>
+                      <i class='bi bi-instagram'></i>
                     </Link>
                   </li>
           
                   <li>
                     <Link
                      to="/">
-                      <i className='bi-bi-twitter'></i>
+                      <i class='bi bi-twitter'></i>
                     </Link>
                   </li>
 
                   <li>
                     <Link to="/">
-                      <i className='bi-bi-youtube'></i>
+                      <i class='bi bi-youtube'></i>
                     </Link>
                   </li>
 
@@ -90,7 +117,14 @@ const Footer = () => {
 
         </Row>
       </Container>
-    </section>
+    </footer>
+    {/* //scroll to top */}
+    {isVisible && (   <div className='scroll_top' onClick={scrollTop}>
+      <i class="bi bi-arrow-up"></i>
+    </div>)}
+ 
+    </>
+
   )
 }
 
