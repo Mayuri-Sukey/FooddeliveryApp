@@ -62,6 +62,8 @@ header .nav-link{
     transition: all 15ms ease-in-out;
 
 }
+
+
  header .sticky .nav-link{
     color:var(--light-black);
  }
