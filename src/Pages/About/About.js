@@ -6,7 +6,7 @@ const About = () => {
     <div class = "about">
       {/* <Headers /> */}
       <Header currentPage="about"  />
-      This is Header
+      This is Header chetan mundle
     </div>
   );
 }
